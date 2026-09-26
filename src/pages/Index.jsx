@@ -19,6 +19,12 @@ export default function Index() {
     setResultMessage(null);
     setWarningMessage(null);
 
+    if (!inputValue || inputValue === "") {
+      setWarningMessage("กรุณาระบุจำนวนเงิน");
+      setResultMessage(null);
+      return;
+    }
+
     const val = parseFloat(inputValue);
 
     // Check if input is error or not a number
@@ -30,7 +36,7 @@ export default function Index() {
 
     if (calOption === "todayRemaining") {
       if (val > 200) {
-        setWarningMessage("สิทธิที่ได้รับสูงสุดต่อวัน ไม่เกิน 200 บาทต่อวัน");
+        setWarningMessage("สิทธิที่ได้รับสูงสุดต่อวัน ไม่เกิน 200 บาท");
         return;
       }
       if (val < 0) {
@@ -257,22 +263,22 @@ export default function Index() {
     switch (calOption) {
       case "todayRemaining":
         return {
-          title: "ดูตัวอย่าง",
+          title: "รูปตัวอย่าง",
           src: "/pics/todayRemaining.jpg",
         };
       case "monthRemaining":
         return {
-          title: "ดูตัวอย่าง",
+          title: "รูปตัวอย่าง",
           src: "/pics/monthRemaining.jpg",
         };
       case "gWalletAmount":
         return {
-          title: "ดูตัวอย่าง",
+          title: "รูปตัวอย่าง",
           src: "/pics/gWalletAmount.jpg",
         };
       case "productPrice":
         return {
-          title: "ดูตัวอย่าง",
+          title: "รูปตัวอย่าง",
           src: "/pics/productPrice.jpg",
         };
     }
@@ -333,7 +339,7 @@ export default function Index() {
           onClick={() => setShowModal(true)}
           className="text-xs text-blue-600 font-medium hover:underline flex items-center gap-1"
         >
-          ดูตัวอย่าง
+          รูปตัวอย่าง
         </button>
         <input
           type="text"
@@ -358,7 +364,7 @@ export default function Index() {
           onClick={handleCalculate}
           className="px-4 bg-gray-100 text-gray-600 py-2.5 rounded-xl font-medium text-sm shadow-sm hover:bg-blue-700 transition-all"
         >
-          คำนวน
+          คำนวณ
         </button>
         <button
           type="button"

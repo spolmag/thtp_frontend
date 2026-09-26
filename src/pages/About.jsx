@@ -28,7 +28,7 @@ export default function About() {
             <p>
               <span className="font-medium text-gray-500">PHONE:</span>{" "}
               <a
-                href="tel:0000000000"
+                href="tel:0895181958"
                 className="text-blue-600 hover:underline"
               >
                 089-5181958
@@ -36,7 +36,12 @@ export default function About() {
             </p>
             <p>
               <span className="font-medium text-gray-500">EMAIL:</span>{" "}
-              <span className="text-gray-700">spolmag@gmail.com</span>
+              <a
+                href="mailto:spolmag@gmail.com"
+                className="text-blue-600 hover:underline"
+              >
+                spolmag@gmail.com
+              </a>
             </p>
             <p>
               <span className="font-medium text-gray-500">LINE:</span>{" "}
@@ -63,7 +68,7 @@ export default function About() {
             <p>
               <span className="font-medium text-gray-500">LINKEDIN:</span>{" "}
               <a
-                href="https://www.linkedin.com/in/suttipong-polmag-7898ba2a4/"
+                href="https://www.linkedin.com/in/suttipong-polmag-7898ba2a4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
