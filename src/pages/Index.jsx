@@ -69,7 +69,7 @@ export default function Index() {
       //
     } else if (calOption === "monthRemaining") {
       if (val > 1000) {
-        setWarningMessage("สิทธิที่ได้รับสูงสุดต่อเดือน ไม่เกิน 1,000 บาท");
+        setWarningMessage("สิทธิที่ได้รับสูงสุด ไม่เกิน 1,000 บาท");
         return;
       }
       if (val < 0) {
@@ -82,7 +82,7 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้ในเดือนนี้:{" "}
+              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย. 2569:{" "}
               <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
             </li>
             <li>
@@ -111,7 +111,7 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้ในเดือนนี้:{" "}
+              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย. 2569:{" "}
               <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
             </li>
             <li>
@@ -141,7 +141,8 @@ export default function Index() {
           <ul className="list-disc pl-5 space-y-1">
             <li>
               จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้ตามสิทธิสูงสุด
-              ไม่เกินวันละ 333.33 บาท หรือไม่เกินเดือนละ 1,666.67 บาท
+              ไม่เกินวันละ 333.33 บาท หรือตลอดระยะเวลาโครงการ ไม่เกิน 1,666.67
+              บาท
             </li>
             <li>
               <p className="text-rose-700">
@@ -159,14 +160,16 @@ export default function Index() {
           <ul className="list-disc pl-5 space-y-1">
             <li>
               จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุดต่อวัน
-              333.33 บาท และได้สูงสุดในเดือนนี้ {formatNum(monthMaxPurchase)}{" "}
-              บาท
+              333.33 บาท และได้สูงสุดจนถึงวันที่ 30 พ.ย. 2569{" "}
+              <span className="font-bold">
+                {formatNum(monthMaxPurchase)} บาท
+              </span>
             </li>
             <li>
               <p className="text-rose-700">
                 ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
                 กรุณาคำนวนสิทธิจากมูลค่าคงเหลือวันนี้
-                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+                หรือสิทธิคงเหลือทั้งหมดอีกครั้ง
               </p>
             </li>
           </ul>,
@@ -178,13 +181,13 @@ export default function Index() {
           <ul className="list-disc pl-5 space-y-1">
             <li>
               จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุด{" "}
-              {formatNum(maxPurchase)} บาท
+              <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
             </li>
             <li>
               <p className="text-rose-700">
                 ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
                 กรุณาคำนวนสิทธิจากมูลค่าคงเหลือวันนี้
-                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+                หรือสิทธิคงเหลือทั้งหมดอีกครั้ง
               </p>
             </li>
           </ul>,
@@ -230,7 +233,7 @@ export default function Index() {
               <p className="text-rose-700">
                 ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
                 กรุณาเช็คสิทธิจากมูลค่าคงเหลือวันนี้
-                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+                หรือสิทธิคงเหลือทั้งหมดอีกครั้ง
               </p>
             </li>
           </ul>,
@@ -256,7 +259,7 @@ export default function Index() {
               <p className="text-rose-700">
                 ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
                 กรุณาเช็คสิทธิจากมูลค่าคงเหลือวันนี้
-                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+                หรือสิทธิคงเหลือทั้งหมดอีกครั้ง
               </p>
             </li>
           </ul>,
@@ -305,7 +308,7 @@ export default function Index() {
       case "todayRemaining":
         return "มูลค่าคงเหลือวันนี้ (บาท)";
       case "monthRemaining":
-        return "สิทธิคงเหลือในเดือน (บาท)";
+        return "สิทธิคงเหลือ (บาท)";
       case "gWalletAmount":
         return "เงินใน G Wallet (บาท)";
       case "productPrice":
@@ -337,7 +340,7 @@ export default function Index() {
           className="w-full p-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="todayRemaining">มูลค่าคงเหลือวันนี้</option>
-          <option value="monthRemaining">สิทธิคงเหลือในเดือน</option>
+          <option value="monthRemaining">สิทธิคงเหลือ</option>
           <option value="productPrice">ราคาสินค้า</option>
           <option value="gWalletAmount">เงินใน G Wallet</option>
         </select>
@@ -345,16 +348,18 @@ export default function Index() {
 
       {/* Input field */}
       <div className="space-y-1">
-        <label className="block text-xs font-semibold text-gray-600">
-          {getInputLabel()}
-        </label>
-        <button
-          type="button"
-          onClick={() => setShowModal(true)}
-          className="text-xs text-blue-600 font-medium hover:underline flex items-center gap-1"
-        >
-          รูปตัวอย่าง
-        </button>
+        <div className="flex flex-row">
+          <label className="block text-xs font-semibold text-gray-600">
+            {getInputLabel()}
+          </label>
+          <button
+            type="button"
+            onClick={() => setShowModal(true)}
+            className="text-xs text-blue-600 font-medium hover:underline flex items-center gap-1"
+          >
+            ❓
+          </button>
+        </div>
         <input
           type="text"
           inputMode="decimal"
