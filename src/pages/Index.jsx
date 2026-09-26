@@ -226,6 +226,13 @@ export default function Index() {
                 {formatNum(133.33 + priceDif)} บาท
               </p>
             </li>
+            <li>
+              <p className="text-rose-700">
+                ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
+                กรุณาเช็คสิทธิจากมูลค่าคงเหลือวันนี้
+                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+              </p>
+            </li>
           </ul>,
         );
       } else {
@@ -244,6 +251,13 @@ export default function Index() {
               <span className="text-rose-700 font-bold">
                 {formatNum(cusPay)} บาท
               </span>
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
+                กรุณาเช็คสิทธิจากมูลค่าคงเหลือวันนี้
+                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+              </p>
             </li>
           </ul>,
         );
