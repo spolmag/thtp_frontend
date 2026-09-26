@@ -5,6 +5,7 @@ export default function Index() {
   const [inputValue, setInputValue] = useState("");
   const [resultMessage, setResultMessage] = useState(null);
   const [warningMessage, setWarningMessage] = useState(null);
+  const [showModal, setShowModal] = useState(null);
 
   //   Helper for format number with comma and 2 decimals
   const formatNum = (num) => {
@@ -38,9 +39,28 @@ export default function Index() {
       }
       const gWalletNeeded = val * (40 / 60);
       const maxPurchase = val + gWalletNeeded;
+
       setResultMessage(
-        `ยอดซื้อสินค้าได้สูงสุดคงเหลือในวันนี้ ${formatNum(maxPurchase)} บาท โดยท่านต้องมีเงินใน G Wallet ${formatNum(gWalletNeeded)} บาท`,
+        <ul className="list-disc pl-5 space-y-1">
+          <li>
+            ยอดรวมคงเหลือที่ใช้ซื้อสินค้าได้ในวันนี้:{" "}
+            <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
+          </li>
+          <li>
+            ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet:{" "}
+            <span className="font-bold text-red-900">
+              {formatNum(gWalletNeeded)} บาท
+            </span>
+          </li>
+          <li>
+            ยอดเงิน 60% ที่รัฐออกให้:{" "}
+            <span className="font-bold text-green-900">
+              {formatNum(val)} บาท
+            </span>
+          </li>
+        </ul>,
       );
+      //
     } else if (calOption === "monthRemaining") {
       if (val > 1000) {
         setWarningMessage("สิทธิที่ได้รับสูงสุดต่อเดือน ไม่เกิน 1,000 บาท");
@@ -50,31 +70,178 @@ export default function Index() {
         setWarningMessage("จำนวนเงินไม่ถูกต้อง");
         return;
       }
-      const gWalletNeeded = val * (40 / 60);
-      const maxPurchase = val + gWalletNeeded;
-      setResultMessage(
-        `ยอดที่ซื้อสินค้าได้สูงสุดคงเหลือในเดือนนี้ ${formatNum(maxPurchase)} บาท โดยท่านต้องมีเงินใน G Wallet ${formatNum(gWalletNeeded)} บาท`,
-      );
+      if (val > 200) {
+        const gWalletNeeded = val * (40 / 60);
+        const maxPurchase = val + gWalletNeeded;
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้ในเดือนนี้:{" "}
+              <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
+            </li>
+            <li>
+              ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet:{" "}
+              <span className="font-bold text-red-700">
+                {formatNum(gWalletNeeded)} บาท
+              </span>
+            </li>
+            <li>
+              ยอดเงิน 60% ที่รัฐออกให้:{" "}
+              <span className="font-bold text-green-900">
+                {formatNum(val)} บาท
+              </span>
+            </li>
+            <li>
+              <span className="font-bold text-red-700">
+                ใช้ซื้อสินค้าได้ไม่เกินวันละ 333.33 บาท
+              </span>
+            </li>
+          </ul>,
+        );
+        return;
+      } else {
+        const gWalletNeeded = val * (40 / 60);
+        const maxPurchase = val + gWalletNeeded;
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้ในเดือนนี้:{" "}
+              <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
+            </li>
+            <li>
+              ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet:{" "}
+              <span className="font-bold text-red-700">
+                {formatNum(gWalletNeeded)} บาท
+              </span>
+            </li>
+            <li>
+              ยอดเงิน 60% ที่รัฐออกให้:{" "}
+              <span className="font-bold text-green-900">
+                {formatNum(val)} บาท
+              </span>
+            </li>
+          </ul>,
+        );
+      }
+      //
     } else if (calOption === "gWalletAmount") {
       if (val < 0) {
         setWarningMessage("จำนวนเงินไม่ถูกต้อง");
         return;
       }
-      const govCover = val * (60 / 40);
-      const maxPurchase = val + govCover;
-      setResultMessage(
-        `ยอดซื้อสินค้าได้สูงสุด ${formatNum(maxPurchase)} บาท โดยยอดซื้อรวมต้องไม่เกินเงื่อนไข 333.33 บาทต่อวัน หรือ 1,666.67 บาทต่อเดือน`,
-      );
-    } else if (calOption === "productPrice") {
+
+      if (val > 666.67) {
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้ตามสิทธิสูงสุด
+              ไม่เกินวันละ 333.33 บาท หรือไม่เกินเดือนละ 1,666.67 บาท
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
+                กรุณาคำนวนสิทธิจากมูลค่าคงเหลือวันนี้
+                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+              </p>
+            </li>
+          </ul>,
+        );
+      } else if (val > 133.33) {
+        const govCover = val * (60 / 40);
+        const monthMaxPurchase = val + govCover;
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุดต่อวัน
+              333.33 บาท และได้สูงสุดในเดือนนี้ {formatNum(monthMaxPurchase)}{" "}
+              บาท
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
+                กรุณาคำนวนสิทธิจากมูลค่าคงเหลือวันนี้
+                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+              </p>
+            </li>
+          </ul>,
+        );
+      } else {
+        const govCover = val * (60 / 40);
+        const maxPurchase = val + govCover;
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุด{" "}
+              {formatNum(maxPurchase)} บาท
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ยอดข้างต้นยังไม่หักสิทธิที่ใช้ไปก่อนหน้า
+                กรุณาคำนวนสิทธิจากมูลค่าคงเหลือวันนี้
+                หรือสิทธิคงเหลือในเดือนอีกครั้ง
+              </p>
+            </li>
+          </ul>,
+        );
+      }
+    }
+    //
+    else if (calOption === "productPrice") {
       if (val < 0) {
         setWarningMessage("จำนวนเงินไม่ถูกต้อง");
         return;
       }
-      const govCover = val * 0.6;
-      const userPay = val * 0.4;
-      setResultMessage(
-        `ส่วนที่รัฐออกให้ ${formatNum(govCover)} บาท ส่วนที่ท่านต้องออก ${formatNum(userPay)} บาท โดยยอดซื้อรวมต้องไม่เกินเงื่อนไข 333.33 บาทต่อวัน หรือ 1,666.67 บาทต่อเดือน และถ้ายอดซื้อสินค้าเกินกว่ายอดสิทธิสูงสุด ท่านต้องจ่ายเพิ่มส่วนต่างเต็มจำนวน`,
-      );
+      if (val > 333.33) {
+        const priceDif = val - 333.33;
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              <p className="text-rose-700">
+                ราคาสินค้าเกินสิทธิสูงสุดต่อวัน 333.33 บาท
+              </p>
+            </li>
+            <li>
+              จำนวนเงิน 60 % ที่รัฐจ่ายให้:{" "}
+              <span className="text-green-900 font-bold">200 บาท</span>
+            </li>
+            <li>
+              จำนวนเงิน 40% ที่คุณต้องจ่ายจาก G Wallet:{" "}
+              <span className="text-rose-700 font-bold">133.33 บาท</span>
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ส่วนต่างที่เหลือที่คุณต้องจ่ายเต็มจำนวน: {formatNum(priceDif)}{" "}
+                บาท
+              </p>
+            </li>
+            <li>
+              <p className="text-rose-700">
+                จำนวนเงินขั้นต่ำที่คุณต้องมีใน G Wallet:{" "}
+                {formatNum(133.33 + priceDif)} บาท
+              </p>
+            </li>
+          </ul>,
+        );
+      } else {
+        const govCover = val * 0.6;
+        const cusPay = val * 0.4;
+        setResultMessage(
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              จำนวนเงิน 60 % ที่รัฐจ่ายให้:{" "}
+              <span className="text-green-900 font-bold">
+                {formatNum(govCover)} บาท
+              </span>
+            </li>
+            <li>
+              จำนวนเงิน 40% ที่คุณต้องจ่ายจาก G Wallet:{" "}
+              <span className="text-rose-700 font-bold">
+                {formatNum(cusPay)} บาท
+              </span>
+            </li>
+          </ul>,
+        );
+      }
     }
   };
 
@@ -84,6 +251,34 @@ export default function Index() {
     setResultMessage(null);
     setWarningMessage(null);
   };
+
+  // Map example image
+  const getImageInfo = () => {
+    switch (calOption) {
+      case "todayRemaining":
+        return {
+          title: "ดูตัวอย่าง",
+          src: "/pics/todayRemaining.jpg",
+        };
+      case "monthRemaining":
+        return {
+          title: "ดูตัวอย่าง",
+          src: "/pics/monthRemaining.jpg",
+        };
+      case "gWalletAmount":
+        return {
+          title: "ดูตัวอย่าง",
+          src: "/pics/gWalletAmount.jpg",
+        };
+      case "productPrice":
+        return {
+          title: "ดูตัวอย่าง",
+          src: "/pics/productPrice.jpg",
+        };
+    }
+  };
+
+  const currentImageInfo = getImageInfo();
 
   const getInputLabel = () => {
     switch (calOption) {
@@ -123,8 +318,8 @@ export default function Index() {
         >
           <option value="todayRemaining">มูลค่าคงเหลือวันนี้</option>
           <option value="monthRemaining">สิทธิคงเหลือในเดือน</option>
-          <option value="gWalletAmount">เงินใน G Wallet</option>
           <option value="productPrice">ราคาสินค้า</option>
+          <option value="gWalletAmount">เงินใน G Wallet</option>
         </select>
       </div>
 
@@ -133,6 +328,13 @@ export default function Index() {
         <label className="block text-xs font-semibold text-gray-600">
           {getInputLabel()}
         </label>
+        <button
+          type="button"
+          onClick={() => setShowModal(true)}
+          className="text-xs text-blue-600 font-medium hover:underline flex items-center gap-1"
+        >
+          ดูตัวอย่าง
+        </button>
         <input
           type="text"
           inputMode="decimal"
@@ -179,6 +381,28 @@ export default function Index() {
           <p className="text-sm text-blue-900 leading-relaxed">
             {resultMessage}
           </p>
+        </div>
+      )}
+
+      {/* Show sample picture */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-sm w-full p-4 space-y-3 shadow-xl">
+            <div className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
+              <img
+                src={currentImageInfo.src}
+                alt="ตัวย่างภาพหน้าจอ"
+                className="w-full h-auto object-contain max-h-75"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => setShowModal(false)}
+              className="w-full py-2 bg-blue-600 text-white rounded-xl text-xs font-medium hover:bg-blue-700 transition-colors "
+            >
+              ปิด
+            </button>
+          </div>
         </div>
       )}
     </div>

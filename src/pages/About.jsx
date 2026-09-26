@@ -18,7 +18,7 @@ export default function About() {
 
         <div className="space-y-1.5 pt-2">
           <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-            ผู้จัดทำและช่องทางติดต่อ
+            ผู้จัดทำ
           </h3>
           <p className="font-semibold text-gray-800 text-base">
             SUTTIPONG POLMAG
