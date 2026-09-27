@@ -49,17 +49,17 @@ export default function Index() {
       setResultMessage(
         <ul className="list-disc pl-5 space-y-1">
           <li>
-            ยอดรวมคงเหลือที่ใช้ซื้อสินค้าได้ในวันนี้:{" "}
+            ยอดรวมคงเหลือที่ใช้ซื้อสินค้าได้ในวันนี้{" "}
             <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
           </li>
           <li>
-            ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet:{" "}
+            ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet{" "}
             <span className="font-bold text-red-900">
               {formatNum(gWalletNeeded)} บาท
             </span>
           </li>
           <li>
-            ยอดเงิน 60% ที่รัฐออกให้:{" "}
+            ยอดเงิน 60% ที่รัฐออกให้{" "}
             <span className="font-bold text-green-900">
               {formatNum(val)} บาท
             </span>
@@ -82,17 +82,17 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย. 2569:{" "}
+              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย. 2569{" "}
               <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
             </li>
             <li>
-              ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet:{" "}
+              ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet{" "}
               <span className="font-bold text-red-700">
                 {formatNum(gWalletNeeded)} บาท
               </span>
             </li>
             <li>
-              ยอดเงิน 60% ที่รัฐออกให้:{" "}
+              ยอดเงิน 60% ที่รัฐออกให้{" "}
               <span className="font-bold text-green-900">
                 {formatNum(val)} บาท
               </span>
@@ -111,11 +111,11 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย. 2569:{" "}
+              ยอดรวมคงเหลือ ใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย. 2569{" "}
               <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
             </li>
             <li>
-              ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet:{" "}
+              ยอดเงิน 40% ที่คุณต้องจ่ายโดยหักจาก G Wallet{" "}
               <span className="font-bold text-red-700">
                 {formatNum(gWalletNeeded)} บาท
               </span>
@@ -135,14 +135,21 @@ export default function Index() {
         setWarningMessage("จำนวนเงินไม่ถูกต้อง");
         return;
       }
-
       if (val > 666.67) {
+        const gWalletNeeded = 666.67;
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้ตามสิทธิสูงสุด
-              ไม่เกินวันละ 333.33 บาท หรือตลอดระยะเวลาโครงการ ไม่เกิน 1,666.67
-              บาท
+              เงินใน G Wallet ของคุณสามารถใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย.
+              2569 จำนวน
+              <span className="font-bold">1,666.67 บาท</span>
+              โดยจะหักจากบัญชี G Wallet จำนวน{" "}
+              <span className="font-bold text-rose-700">666.67 บาท</span>
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ใช้สิทธิซื้อสินค้าได้สูงสุดไม่เกินวันละ 333.00 บาท
+              </p>
             </li>
             <li>
               <p className="text-rose-700">
@@ -159,11 +166,21 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุดต่อวัน
-              333.33 บาท และได้สูงสุดจนถึงวันที่ 30 พ.ย. 2569{" "}
+              เงินใน G Wallet ของคุณสามารถใช้ซื้อสินค้าได้จนถึงวันที่ 30 พ.ย.
+              2569 จำนวน{" "}
               <span className="font-bold">
                 {formatNum(monthMaxPurchase)} บาท
               </span>
+              โดยจะหักจากบัญชี G Wallet จำนวน{" "}
+              <span className="font-bold text-rose-700">
+                {formatNum(val)} บาท
+              </span>
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ใช้สิทธิซื้อสินค้าได้สูงสุดไม่เกินวันละ{" "}
+                <span className="font-bold">333.33 บาท</span>
+              </p>
             </li>
             <li>
               <p className="text-rose-700">
@@ -182,6 +199,13 @@ export default function Index() {
             <li>
               จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุด{" "}
               <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
+              โดยจะหักจากบัญชี G Wallet จำนวน <span>{val} บาท</span>
+            </li>
+            <li>
+              <p className="text-rose-700">
+                ใช้สิทธิซื้อสินค้าได้สูงสุดไม่เกินวันละ{" "}
+                <span className="font-bold">333.33 บาท</span>
+              </p>
             </li>
             <li>
               <p className="text-rose-700">
@@ -210,16 +234,16 @@ export default function Index() {
               </p>
             </li>
             <li>
-              จำนวนเงิน 60 % ที่รัฐจ่ายให้:{" "}
+              จำนวนเงิน 60 % ที่รัฐจ่ายให้{" "}
               <span className="text-green-900 font-bold">200 บาท</span>
             </li>
             <li>
-              จำนวนเงิน 40% ที่คุณต้องจ่ายจาก G Wallet:{" "}
+              จำนวนเงิน 40% ที่คุณต้องจ่ายจาก G Wallet{" "}
               <span className="text-rose-700 font-bold">133.33 บาท</span>
             </li>
             <li>
               <p className="text-rose-700">
-                ส่วนต่างที่เหลือที่คุณต้องจ่ายเต็มจำนวน:{" "}
+                ส่วนต่างที่เหลือที่คุณต้องจ่ายเต็มจำนวน{" "}
                 <span className="font-bold">{formatNum(priceDif)} บาท</span>
               </p>
             </li>
@@ -246,13 +270,13 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              จำนวนเงิน 60 % ที่รัฐจ่ายให้:{" "}
+              จำนวนเงิน 60 % ที่รัฐจ่ายให้{" "}
               <span className="text-green-900 font-bold">
                 {formatNum(govCover)} บาท
               </span>
             </li>
             <li>
-              จำนวนเงิน 40% ที่คุณต้องจ่ายจาก G Wallet:{" "}
+              จำนวนเงิน 40% ที่คุณต้องจ่ายจาก G Wallet{" "}
               <span className="text-rose-700 font-bold">
                 {formatNum(cusPay)} บาท
               </span>
