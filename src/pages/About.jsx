@@ -57,12 +57,12 @@ export default function About() {
             <p>
               <span className="font-medium text-gray-500">PORTFOLIO:</span>{" "}
               <a
-                href="https://my-porfolio-frontend-orcin.vercel.app/"
+                href="https://my-portfolio-202609.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
               >
-                my-porfolio-frontend-orcin.vercel.app
+                https://my-portfolio-202609.vercel.app/
               </a>
             </p>
             <p>
