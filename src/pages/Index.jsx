@@ -197,9 +197,10 @@ export default function Index() {
         setResultMessage(
           <ul className="list-disc pl-5 space-y-1">
             <li>
-              จำนวนเงินใน g Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุด{" "}
+              จำนวนเงินใน G Wallet ของคุณสามารถใช้ซื้อสินค้าได้สูงสุด{" "}
               <span className="font-bold">{formatNum(maxPurchase)} บาท</span>
-              โดยจะหักจากบัญชี G Wallet จำนวน <span>{val} บาท</span>
+              โดยจะหักจากบัญชี G Wallet จำนวน{" "}
+              <span className="text-rose-700 font-bold">{val} บาท</span>
             </li>
             <li>
               <p className="text-rose-700">
