@@ -219,14 +219,16 @@ export default function Index() {
             </li>
             <li>
               <p className="text-rose-700">
-                ส่วนต่างที่เหลือที่คุณต้องจ่ายเต็มจำนวน: {formatNum(priceDif)}{" "}
-                บาท
+                ส่วนต่างที่เหลือที่คุณต้องจ่ายเต็มจำนวน:{" "}
+                <span className="font-bold">{formatNum(priceDif)} บาท</span>
               </p>
             </li>
             <li>
               <p className="text-rose-700">
                 จำนวนเงินขั้นต่ำที่คุณต้องมีใน G Wallet:{" "}
-                {formatNum(133.33 + priceDif)} บาท
+                <span className="font-bold">
+                  {formatNum(133.33 + priceDif)} บาท
+                </span>
               </p>
             </li>
             <li>
