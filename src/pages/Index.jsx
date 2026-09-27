@@ -354,7 +354,7 @@ export default function Index() {
       {/* Option select */}
       <div className="space-y-1">
         <label className="block text-xs font-semibold text-gray-600">
-          คำนวนจาก
+          คำนวณจาก
         </label>
         <select
           value={calOption}
