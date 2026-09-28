@@ -38,7 +38,7 @@ function CountdownTimer() {
         {timeLeft.days} วัน {timeLeft.hours} ชั่วโมง
       </span>
       <span className="text-xs text-gray-500 block mt-0.5">
-        (สิ้นสุดโครงการ 30 พ.ย. 2569 21:00 น.)
+        (สิ้นสุดโครงการ 30 พ.ย. 2569 23:00 น.)
       </span>
     </div>
   );
