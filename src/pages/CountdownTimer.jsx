@@ -5,7 +5,7 @@ function CountdownTimer() {
 
   useEffect(() => {
     // Target: November 30, 2026, at 21:00:00 (9:00 PM)
-    const targetDate = new Date("2026-11-30T21:00:00+07:00").getTime();
+    const targetDate = new Date("2026-11-30T23:00:00+07:00").getTime();
 
     const calculateTime = () => {
       const now = new Date().getTime();
