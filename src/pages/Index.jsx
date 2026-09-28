@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CountdownTimer from "./CountdownTimer";
 
 export default function Index() {
   const [calOption, setCalOption] = useState("todayRemaining");
@@ -349,8 +350,8 @@ export default function Index() {
     <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-4">
       <h2 className="text-lg font-bold text-gray-800 text-center">
         คำนวณสิทธิไทยช่วยไทยพลัส 60/40
+        <CountdownTimer />
       </h2>
-
       {/* Option select */}
       <div className="space-y-1">
         <label className="block text-xs font-semibold text-gray-600">
