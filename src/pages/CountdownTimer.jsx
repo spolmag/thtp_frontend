@@ -32,9 +32,9 @@ function CountdownTimer() {
   }, []);
 
   return (
-    <div className="text-center my-3 text-sm font-medium text-gray-600 bg-orange-50 border border-orange-100 py-2 px-4 rounded-xl inline-block">
+    <div className="text-center my-3 text-xs font-medium text-gray-600 bg-orange-50 border border-orange-100 py-2 px-4 rounded-xl inline-block">
       <span>⏳ เหลือเวลาในโครงการอีก</span>{" "}
-      <span className="font-bold text-orange-600">
+      <span className="text-orange-600">
         {timeLeft.days} วัน {timeLeft.hours} ชั่วโมง {timeLeft.minutes} นาที
       </span>
       <span className="text-xs text-gray-500 block mt-0.5">
