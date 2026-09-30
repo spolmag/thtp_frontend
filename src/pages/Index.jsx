@@ -395,7 +395,8 @@ export default function Index() {
             onClick={() => setShowModal(true)}
             className="text-xs text-blue-600 font-medium hover:underline flex items-center gap-1"
           >
-            ❓
+            <span>{"     "}</span>
+            <span>ตูภาพตัวอย่างหน้าแอปเป๋าตัง?</span>
           </button>
         </div>
         <input
