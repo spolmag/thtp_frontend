@@ -455,7 +455,7 @@ export default function Index() {
             <div className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex justify-center">
               <img
                 src={currentImageInfo.src}
-                alt="ตัวย่างภาพหน้าจอ"
+                alt="ตัวอย่างภาพหน้าจอ"
                 className="w-full h-auto object-contain max-h-75"
               />
             </div>
