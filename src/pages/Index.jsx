@@ -396,7 +396,7 @@ export default function Index() {
             className="text-xs text-blue-600 font-medium hover:underline flex items-center gap-1"
           >
             <span>{"     "}</span>
-            <span>ตูภาพตัวอย่างหน้าแอปเป๋าตัง?</span>
+            <span>ℹ️ ตูภาพตัวอย่างหน้าแอปเป๋าตัง?</span>
           </button>
         </div>
         <input
