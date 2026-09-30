@@ -419,14 +419,14 @@ export default function Index() {
         <button
           type="button"
           onClick={handleCalculate}
-          className="px-4 bg-gray-100 text-gray-600 py-2.5 rounded-xl font-medium text-sm shadow-sm hover:bg-blue-700 transition-all"
+          className="px-4 bg-gray-100 text-gray-600 py-2.5 rounded-xl font-medium text-sm shadow-sm hover:bg-blue-700 hover:text-white transition-all"
         >
           คำนวณ
         </button>
         <button
           type="button"
           onClick={handleClear}
-          className="px-4 bg-gray-100 text-gray-600 py-2.5 rounded-xl font-medium text-sm shadow-sm hover:bg-blue-700 transition-all"
+          className="px-4 bg-gray-100 text-gray-600 py-2.5 rounded-xl font-medium text-sm shadow-sm hover:bg-blue-700 hover:text-white transition-all"
         >
           เคลียร์
         </button>
